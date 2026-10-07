@@ -1,0 +1,40 @@
+[
+  {
+    "word": "પાણી",
+    "transliteration": "paani",
+    "pos": "noun",
+    "meaning_gu": "જળ; પીવાનું પ્રવાહી",
+    "meaning_en": "water",
+    "example": "તરસ લાગી છે, પાણી આપો.",
+    "synonyms": ["જળ", "નીર", "વારિ"],
+    "idioms": [
+      {"phrase": "મોઢામાં પાણી આવવું", "meaning": "કશુંક ખાવાની તીવ્ર ઇચ્છા થવી"},
+      {"phrase": "પાણીમાં બેસી જવું", "meaning": "હિંમત હારી જવું; નિષ્ફળ જવું"}
+    ]
+  },
+  {
+    "word": "ઘર",
+    "transliteration": "ghar",
+    "pos": "noun",
+    "meaning_gu": "રહેવાની જગ્યા",
+    "meaning_en": "house, home",
+    "example": "અમારું ઘર ગામમાં છે.",
+    "synonyms": ["મકાન", "ગૃહ", "રહેઠાણ"],
+    "idioms": [
+      {"phrase": "ઘર માથે લેવું", "meaning": "ખૂબ ઘોંઘાટ કરવો"}
+    ]
+  },
+  {
+    "word": "આંખ",
+    "transliteration": "aankh",
+    "pos": "noun",
+    "meaning_gu": "જોવાની ઇન્દ્રિય",
+    "meaning_en": "eye",
+    "example": "તેની આંખ સુંદર છે.",
+    "synonyms": ["નયન", "નેત્ર", "લોચન"],
+    "idioms": [
+      {"phrase": "આંખનો તારો", "meaning": "ખૂબ વહાલું વ્યક્તિ"},
+      {"phrase": "આંખ ઉઘડવી", "meaning": "સાચી વાત સમજાઈ જવી"}
+    ]
+  }
+]
