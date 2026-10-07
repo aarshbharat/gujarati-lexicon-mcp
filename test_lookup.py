@@ -1,4 +1,4 @@
-from server import _lookup
+from server import _find
 
 cases = {
     "આંખ": "આંખ",
@@ -7,12 +7,12 @@ cases = {
     "ઘરમાં": "ઘર",
     "ઘરે": "ઘર",
     "પાણીમાં": "પાણી",
+    "સૂરજ": "સૂરજ",  # was missing before; Wiktionary covers it now
 }
 
 for word, expected in cases.items():
-    entry = _lookup(word)
-    got = entry["word"] if entry else None
+    got = _find(word)
     assert got == expected, f"{word!r}: expected {expected!r}, got {got!r}"
 
-assert _lookup("સૂરજ") is None, "unknown word should stay unknown"
+assert _find("ઝઝઝઝ") is None, "nonsense should stay unknown"
 print("all lookup tests passed")
