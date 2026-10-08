@@ -9,3 +9,4 @@ data/raw/
 
 # Virtual environments
 .venv
+mcp-publisher.exe
