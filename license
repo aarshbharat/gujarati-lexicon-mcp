@@ -5,7 +5,7 @@
 > **Why this exists:** LLMs are unreliable with Gujarati. They invent meanings, mix up idioms, and produce convincing but wrong usage. This server gives the model facts to stand on and tells it plainly when a word is *not* in the dictionary.
 
 <!-- TODO: add demo GIF here -->
-<!-- ![Demo](docs/demo.gif) -->
+![Demo](docs/demo.gif)
 
 ## Example
 

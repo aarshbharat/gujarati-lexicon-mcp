@@ -15,6 +15,8 @@ from gujarati_lexicon_mcp.server import _find
         ("પાણીમાં", "પાણી"),
         ("સૂરજ", "સૂરજ"),    # Wiktionary coverage
         ("અમે", "હું"),      # plural pronoun → base word
+        ("તમારો", "તમે"),    # ending swap: તમારો → તમારું → તમે
+        ("સારા", "સારું"),   # adjective variant
     ],
 )
 def test_find(word, expected):

@@ -1,6 +1,6 @@
 [project]
 name = "gujarati-lexicon-mcp"
-version = "0.2.0"
+version = "0.2.1"
 description = "MCP server that gives AI assistants a grounded Gujarati dictionary: meanings, synonyms, idioms, with inflection handling"
 readme = "README.md"
 authors = [{ name = "Aarsh Dhokai", email = "aarshbharat@gmail.com" }]

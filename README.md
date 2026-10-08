@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.aarshbharat/gujarati-lexicon-mcp -->
 # Gujarati Lexicon MCP Server
 
 **A grounded Gujarati dictionary for AI assistants.** Connect it to Claude (or any MCP client) and the assistant looks Gujarati words up in real dictionary data instead of guessing: meanings, synonyms, idioms (રૂઢિપ્રયોગ), and inflected forms like ઘરમાં or આંખોમાં.
@@ -40,18 +41,7 @@ Requires [uv](https://docs.astral.sh/uv/).
 Add this to your Claude Desktop config (Settings → Developer → Edit Config):
 
 ```json
-{
-  "mcpServers": {
-    "gujarati-lexicon": {
-      "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/aarshbharat/gujarati-lexicon-mcp",
-        "gujarati-lexicon-mcp"
-      ]
-    }
-  }
-}
+      "args": ["gujarati-lexicon-mcp"]
 ```
 
 Restart Claude Desktop completely (quit from the system tray), open a new chat, and ask about any Gujarati word.

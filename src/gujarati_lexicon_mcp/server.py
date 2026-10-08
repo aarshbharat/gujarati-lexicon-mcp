@@ -8,7 +8,7 @@ from mcp.server.mcpserver import MCPServer
 
 mcp = MCPServer(
     "gujarati-lexicon",
-    version="0.2.0",
+    version="0.2.1",
     instructions=(
         "This server is a Gujarati dictionary combining two sources: a "
         "hand-checked dictionary (Gujarati meanings, idioms) and Wiktionary "
@@ -24,6 +24,10 @@ WIKTIONARY_ATTRIBUTION = "Wiktionary (en.wiktionary.org) via kaikki.org, CC BY-S
 
 # Common Gujarati endings, longest first so "માંથી" is tried before "થી".
 SUFFIXES = ["માંથી", "માં", "થી", "નો", "ની", "નું", "ના", "ને", "એ", "ે", "ો"]
+
+# Variable adjectives/pronouns change their ending with gender and number
+# (સારો / સારી / સારા / સારું). Wiktionary often lists only the -ું form.
+GENDER_ENDINGS = ["ો", "ી", "ા", "ે"]
 
 
 def normalize(text: str) -> str:
@@ -55,6 +59,8 @@ def _candidates(word: str) -> list[str]:
             if f.endswith(s) and len(f) > len(s)
         ]
         forms.extend(frontier)
+     # Gender/number variants: also try the -ું form of every candidate.
+    forms += [f[:-1] + "ું" for f in list(forms) if f[-1:] in GENDER_ENDINGS]
     return forms
 
 
@@ -65,12 +71,18 @@ def _candidates(word: str) -> list[str]:
     return headword
 
 
-def _find(word: str) -> str | None:
-    """Return the dictionary headword for a word (or its inflected form)."""
+def _match(word: str) -> tuple[str, str] | None:
+    """Return (headword, matched_form): the base word and the form that hit."""
     for form in _candidates(normalize(word)):
         if form in HEADWORD_SET:
-            return _resolve(form)
+            return _resolve(form), form
     return None
+
+
+def _find(word: str) -> str | None:
+    """Return the dictionary headword for a word (or its inflected form)."""
+    match = _match(word)
+    return match[0] if match else None
 
 def _resolve(headword: str) -> str:
     """If the headword is only an inflected form, return its base word."""
@@ -108,12 +120,19 @@ def define(word: str) -> dict:
     if headword is None:
         return _not_found(word)
 
+    match = _match(word)
+    if match is None:
+        return _not_found(word)
+    headword, form = match
+
     result: dict = {"found": True, "word": headword}
     if normalize(word) != headword:
         result["matched_from"] = word  # the input was an inflected form
-        form_entry = WIKTIONARY.get(normalize(word))
+        form_entry = WIKTIONARY.get(form)
         if form_entry and form_entry.get("form_note"):
-            result["form_note"] = form_entry["form_note"]  # e.g. "plural of હું"
+            result["form_note"] = form_entry["form_note"]  # e.g. "genitive of તમે; your"
+
+# Before this change, the note was looked up using the input (તમારો, which has no entry). Now it
 
     curated = CURATED.get(headword)
     if curated:
