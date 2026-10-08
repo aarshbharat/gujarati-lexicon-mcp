@@ -211,5 +211,10 @@ def explain_passage(passage: str) -> str:
     )
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """Entry point for the `gujarati-lexicon-mcp` command."""
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()

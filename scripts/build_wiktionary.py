@@ -12,7 +12,7 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw" / "kaikki-gujarati.jsonl"
-OUT = ROOT / "data" / "wiktionary.json"
+OUT = ROOT / "src" / "gujarati_lexicon_mcp" / "data" / "wiktionary.json"
 
 SKIP_POS = {"character", "punct", "symbol", "prefix", "suffix"}
 MAX_SENSES = 5  # keep tool responses short for the LLM

@@ -1,2 +1,5 @@
-def main() -> None:
-    print("Hello from gujarati-lexicon-mcp!")
+"""Gujarati lexicon MCP server."""
+
+from .server import main
+
+__all__ = ["main"]

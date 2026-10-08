@@ -1,18 +1,27 @@
 [project]
 name = "gujarati-lexicon-mcp"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.2.0"
+description = "MCP server that gives AI assistants a grounded Gujarati dictionary: meanings, synonyms, idioms, with inflection handling"
 readme = "README.md"
-authors = [
-    { name = "aarshbharat", email = "aarshbharat@gmail.com" }
-]
-requires-python = ">=3.14"
+authors = [{ name = "Aarsh Dhokai", email = "aarshbharat@gmail.com" }]
+license = "MIT"
+requires-python = ">=3.12"
+keywords = ["mcp", "model-context-protocol", "gujarati", "dictionary", "nlp"]
 dependencies = [
-    "mcp[cli]>=2.3.0",
+    "mcp>=2.3.0",
 ]
+
+[project.urls]
+Repository = "https://github.com/aarshbharat/gujarati-lexicon-mcp"
 
 [project.scripts]
 gujarati-lexicon-mcp = "gujarati_lexicon_mcp:main"
+
+[dependency-groups]
+dev = [
+    "mcp[cli]>=2.3.0",
+    "pytest>=8",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.9,<0.13.0"]
