@@ -1,5 +1,5 @@
 <!-- mcp-name: io.github.aarshbharat/gujarati-lexicon-mcp -->
-# Gujarati Lexicon MCP Server
+# Gujarati Lexicon MCP Server   [![PyPI](https://img.shields.io/pypi/v/gujarati-lexicon-mcp)](https://pypi.org/project/gujarati-lexicon-mcp/)
 
 **A grounded Gujarati dictionary for AI assistants.** Connect it to Claude (or any MCP client) and the assistant looks Gujarati words up in real dictionary data instead of guessing: meanings, synonyms, idioms (રૂઢિપ્રયોગ), and inflected forms like ઘરમાં or આંખોમાં.
 
@@ -113,7 +113,7 @@ scripts/build_wiktionary.py   # raw kaikki dump → wiktionary.json
 tests/                        # pytest
 ```
 
-Built with the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) (v2, `MCPServer`).
+
 
 ## Known limitations
 
@@ -121,6 +121,8 @@ Built with the official [MCP Python SDK](https://github.com/modelcontextprotocol
 - **Wiktionary synonyms are merged across senses.** ઘર's list includes ઓફિસ (from its "office" sense). The tool tells the model this.
 - **The curated set is small.** Most entries have English meanings only; Gujarati-language meanings and idioms come from the hand-checked data.
 - **Grounding covers facts, not everything the model says.** The model may add correct background from its own knowledge (e.g. the inclusive/exclusive "we" distinction for અમે/આપણે). The server's instructions ask it to label general knowledge, but cannot force it.
+
+[![PyPI](https://img.shields.io/pypi/v/gujarati-lexicon-mcp)](https://pypi.org/project/gujarati-lexicon-mcp/)
 
 ## Roadmap
 
